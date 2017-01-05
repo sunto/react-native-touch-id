@@ -1,0 +1,5 @@
+<resources>
+    <string name="touch_dialog_title">Touch ID</string>
+    <string name="touch_dialog_text">Confirm fingerprint to continue</string>
+    <string name="touch_dialog_cancel">Cancel</string>
+</resources>

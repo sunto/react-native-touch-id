@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:id="@+id/fingerprint_container">
+
+    <!-- https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.btn3al2l2 appCompat works if app is srcCompat 7 activity-->
+    <!-- app:srcCompat="@drawable/ic_fp_40px" -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:src="@drawable/ic_fp_40px"
+        android:id="@+id/fingerprint_icon" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fingerprint_description"
+        android:gravity="center" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_button" />
+
+</LinearLayout>
