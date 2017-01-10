@@ -6,6 +6,8 @@
 
 React Native Touch ID is a [React Native](http://facebook.github.io/react-native/) library for authenticating users with Touch ID.
 
+This library now supports both iOS (stable) and Android (experimental)!
+
 ![react-native-touch-id](https://cloud.githubusercontent.com/assets/1627824/7975919/2c69a776-0a42-11e5-9773-3ea1c7dd79f3.gif)
 
 ## Documentation
@@ -24,7 +26,12 @@ npm i --save react-native-touch-id
 
 ## Usage
 ### Linking the Library
-In order to use Touch ID, you must first link the library to your project.  There's excellent documentation on how to do this in the [React Native Docs](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content).
+In order to use Touch ID, you must first link the library to your project.
+
+The recommended and easiest way to link this library is by typing `react-native link react-native-touch-id`
+
+Otherwise, there's excellent documentation on how to do this in the [React Native Docs](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content).
+
 
 ### Requesting Touch ID Authentication
 Once you've linked the library, you'll want to make it available to your app by requiring it:
@@ -53,10 +60,10 @@ var YourComponent = React.createClass({
   _pressHandler() {
     TouchID.authenticate('to demo this react-native component')
       .then(success => {
-        AlertIOS.alert('Authenticated Successfully');
+        Alert.alert('Authenticated Successfully');
       })
       .catch(error => {
-        AlertIOS.alert('Authentication Failed');
+        Alert.alert('Authentication Failed');
       });
   },
 
@@ -88,7 +95,7 @@ TouchID.authenticate(reason)
     // Success code
   })
   .catch(fallbackAuth);
-  
+
 function fallbackAuth(reason) {
   return PasscodeAuth.authenticate(reason)
   .then(success => {
@@ -156,6 +163,8 @@ Below is a list of error codes that can be returned:
 | `RCTTouchIDNotSupported` | Device does not support Touch ID. |
 
 _More information on errors can be found in [Apple's Documentation](https://developer.apple.com/library/prerelease/ios/documentation/LocalAuthentication/Reference/LAContext_Class/index.html#//apple_ref/c/tdef/LAError)._
+
+Note, these errors will not yet be returned on Android.
 
 ## License
 Copyright (c) 2015, [Naoufal Kadhom](http://naoufal.com/)
