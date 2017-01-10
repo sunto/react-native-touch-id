@@ -3,15 +3,23 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import React, { Component } from 'react'
+import TouchID from "react-native-touch-id";
 
 class TouchIDExample extends Component {
+
+  componentDidMount() {
+    TouchID.authenticate()
+      .then(success => console.log('yay'))
+      .catch(err => console.log('error'))
+  }
+
   render() {
     return (
       <View style={styles.container}>
